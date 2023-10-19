@@ -1,13 +1,23 @@
 from gpiozero import LED
 from time import sleep
 
-led = {
-    "red": LED(5),
-    "yellow": LED(6),
-    "green": LED(13)
+led_pins = {
+    "green": 13,
+    "yellow": 6,
+    "red": 5
 }
 
+leds = {color: LED(pin) for color, pin in led_pins.items()}
+
 while True:
-    for i in led.keys():
-        led[i].blink(on_time=1, off_time=1)
-        sleep(2)
+    leds["green"].on()
+    sleep(1)  
+    leds["green"].off()
+
+    leds["yellow"].on()
+    sleep(1)  
+    leds["yellow"].off()
+
+    leds["red"].on()
+    sleep(1)  
+    leds["red"].off()
