@@ -7,7 +7,10 @@ led = {
     "green": LED(13)
 }
 
+x=0
+
 while True:
-    for i in led.keys():
-        led[i].blink(on_time=1, off_time=1)
-        sleep(2)
+    if x > 3:
+        x=0
+    led[x].blink(on_time=1, off_time=1)
+    sleep(2)
